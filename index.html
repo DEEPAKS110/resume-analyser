@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">
+        <i class="fa-solid fa-file-circle-check"></i>
+        <h2>AI Resume Analyzer</h2>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#upload">Upload</a></li>
+          <li><a href="#jobs">Jobs</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <span class="badge">🚀 AI Powered Resume Analysis</span>
+
+        <h1>
+          Build a <span>Job-Winning Resume</span>
+          with AI
+        </h1>
+
+        <p>
+          Upload your resume and instantly receive an ATS score, keyword
+          analysis, personalized suggestions, and professional career insights.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="primary-btn">Upload Resume</button>
+          <button class="secondary-btn">Try Demo</button>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-card">
+            <i>✓</i>
+            <div>
+              <h4>AI Analysis</h4>
+              <p>Fast & Accurate</p>
+            </div>
+          </div>
+
+          <div class="trust-card">
+            <i>★</i>
+            <div>
+              <h4>ATS Score</h4>
+              <p>Professional Report</p>
+            </div>
+          </div>
+
+          <div class="trust-card">
+            <i>🔒</i>
+            <div>
+              <h4>Secure</h4>
+              <p>Your data is protected</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <div class="circle one"></div>
+        <div class="circle two"></div>
+        <img
+          src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80"
+          alt="Person near a mailbox submitting a resume"
+        />
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2>Our Features</h2>
+
+      <div class="feature-container">
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80"
+            alt="Bike speedometer illustration"
+          />
+          <h3>ATS Score</h3>
+          <p>Calculate your resume ATS score instantly.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80"
+            alt="Resume analysis and career review illustration"
+          />
+          <h3>Resume Analysis</h3>
+          <p>Analyze skills, education and experience.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
+            alt="Two people discussing career advice"
+          />
+          <h3>Suggestions</h3>
+          <p>Receive personalized improvement tips.</p>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+            alt="IT company team working on technology"
+          />
+          <h3>Job Recommendations</h3>
+          <p>Find jobs matching your skills.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="upload-section" id="upload">
+      <h2>Upload Resume</h2>
+
+      <div class="upload-box">
+        <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+        <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" />
+
+        <p id="fileName">No file selected</p>
+        <p id="fileSize"></p>
+
+        <button id="analyzeBtn">Analyze Resume</button>
+      </div>
+    </section>
+
+    <section class="analysis">
+      <h2>Resume Analysis</h2>
+
+      <div class="analysis-grid">
+        <div class="analysis-card">
+          <h3>ATS Score</h3>
+          <h1 id="atsScore">0%</h1>
+        </div>
+
+        <div class="analysis-card">
+          <h3>Skills</h3>
+          <p id="skills">-</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3>Education</h3>
+          <p id="education">-</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3>Experience</h3>
+          <p id="experience">-</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3>Projects</h3>
+          <p id="projects">-</p>
+        </div>
+
+        <div class="analysis-card">
+          <h3>Summary</h3>
+          <p id="summary">Upload a resume to view analysis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="suggestions">
+      <h2>Resume Suggestions</h2>
+      <ul id="suggestionList"></ul>
+    </section>
+
+    <section class="strengths">
+      <h2>Resume Strengths</h2>
+      <ul id="strengthList"></ul>
+    </section>
+
+    <section class="weaknesses">
+      <h2>Resume Weaknesses</h2>
+      <ul id="weaknessList"></ul>
+    </section>
+
+    <section class="jobs" id="jobs">
+      <h2>Recommended Jobs</h2>
+      <div class="job-container" id="jobContainer"></div>
+    </section>
+
+    <section class="download-report">
+      <h2>Download Analysis Report</h2>
+
+      <button id="downloadBtn">
+        <i class="fa-solid fa-download"></i>
+        Download PDF Report
+      </button>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+
+      <div class="contact-wrapper">
+        <div class="contact-visual">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+            alt="Professional team discussion"
+          />
+          <div class="contact-badge">
+            <h3>Need help?</h3>
+            <p>We’re here to help you improve your resume and career journey.</p>
+          </div>
+        </div>
+
+        <form>
+          <input type="text" placeholder="Your Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <textarea placeholder="Message" rows="5"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <h3>AI Resume Analyzer</h3>
+      <p>Helping job seekers improve resumes with AI-powered ATS analysis.</p>
+
+      <div class="social-icons">
+        <i class="fab fa-github"></i>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+
+      <p>© 2026 AI Resume Analyzer. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
